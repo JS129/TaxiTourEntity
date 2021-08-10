@@ -1,0 +1,49 @@
+﻿@page
+@model TaxiTour.Pages.Booking.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h4>Book Taxi</h4>
+<hr />
+<div class="row">
+    <div class="col-md-9 font-weight-bold">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="BookedTaxis.Name" class="control-label"></label>
+                <input asp-for="BookedTaxis.Name" class="form-control" placeholder="Enter Name"/>
+                <span asp-validation-for="BookedTaxis.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BookedTaxis.Contact" class="control-label"></label>
+                <input asp-for="BookedTaxis.Contact" class="form-control" placeholder="Enter Contact"/>
+                <span asp-validation-for="BookedTaxis.Contact" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BookedTaxis.TaxiId" class="control-label"></label>
+                <select asp-for="BookedTaxis.TaxiId" class="form-control" asp-items="@(new SelectList(Model.taxis, "Id","CarName"))">
+                    <option value="" selected disabled>--Select Taxi--</option>
+                </select>
+                <span asp-validation-for="BookedTaxis.TaxiId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BookedTaxis.BookingDate" class="control-label"></label>
+                <input asp-for="BookedTaxis.BookingDate" class="form-control" placeholder="Enter Date"/>
+                <span asp-validation-for="BookedTaxis.BookingDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <a asp-page="Index" type="button" class="btn btn-info">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

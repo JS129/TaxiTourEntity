@@ -1,0 +1,50 @@
+﻿@page
+@model TaxiTour.Pages.Taxis.IndexModel
+
+@{ ViewData["Title"] = "Add"; }
+
+<p>
+    <a asp-page="Create" class="btn btn-info">Add New</a>
+</p>
+<table class="table table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Taxi[0].CarName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Taxi[0].From)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Taxi[0].To)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Taxi[0].Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Taxi)
+        {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.CarName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.From)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.To)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Price)
+    </td>
+    <td>
+        <a asp-page="./Edit" asp-route-id="@item.Id" type="button" class="btn btn-info">Edit</a>
+        <a asp-page="./Details" asp-route-id="@item.Id" type="button" class="btn btn-info">Details</a>
+        <a asp-page="./Delete" asp-route-id="@item.Id" type="button" class="btn btn-info">Delete</a>
+    </td>
+</tr>}
+    </tbody>
+</table>

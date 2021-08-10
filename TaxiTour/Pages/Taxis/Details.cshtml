@@ -1,0 +1,49 @@
+﻿@page
+@model TaxiTour.Pages.Taxis.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div>
+    <h4>Taxi</h4>
+    <hr />
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Taxi.CarName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Taxi.From)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Taxi.To)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Taxi.Price)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => model.Taxi.CarName)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Taxi.From)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Taxi.To)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Taxi.Price)
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Taxi.Id"  type="button" class="btn btn-info">Edit</a>
+    <a asp-page="./Index"  type="button" class="btn btn-info">Back to List</a>
+</div>
